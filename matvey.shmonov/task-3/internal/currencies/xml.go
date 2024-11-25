@@ -13,7 +13,8 @@ import (
 )
 
 type Float64 float64
-func (f *Float64) UnmarshalText(text []byte) error {
+
+func (f *Float64) UnmarshalText(text []byte) error { // encoding.TextUnmarshaler
 	strValue := string(text)
 	strValue = strings.ReplaceAll(strValue, ",", ".")
 	value, err := strconv.ParseFloat(strValue, 64)
